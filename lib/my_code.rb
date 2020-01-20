@@ -10,16 +10,16 @@ end
 
 def reduce(source_array, sv=nil)
  if sv
-  num1 = sv
+  cur_total = sv
   i = 0
  else
-  num1 = source_array[0]
+  cur_total = source_array[0]
   i = 1
  end
   while i < source_array.length
-    num1 = !!num1 if !(source_array[i].instance_of? Integer)
-    num1 = yield(source_array[i], num1)
+    cur_total = yield(cur_total, source_array[i] )
+    cur_total = !!cur_total if !(source_array[i].instance_of? Integer) #switch cur_total to boolean if cur item isn't integer
     i += 1
   end
-  return num1
+  return cur_total
 end
