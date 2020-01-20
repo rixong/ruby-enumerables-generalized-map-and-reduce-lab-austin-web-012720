@@ -21,5 +21,5 @@ def reduce(source_array, sv=nil)
     # cur_total = !!cur_total if !(source_array[i].instance_of? Integer) #switch cur_total to boolean if cur item isn't integer
     i += 1
   end
-  return cur_total
+  cur_total
 end
