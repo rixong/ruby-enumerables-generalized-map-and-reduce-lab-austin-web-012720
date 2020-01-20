@@ -8,11 +8,18 @@ def map(source_array)
   return new
 end
 
-def reduce(source_array, total = 0)
-  i=0
+def reduce(source_array, sv=nil)
+ if sv
+  num1 = sv
+  i = 0
+ else
+  num1 = source_array[0]
+  i = 1
+ end
   while i < source_array.length
-    total = yield(source_array[i], total)
+    num1 = !!num1 if !(source_array[i].instance_of? Integer)
+    num1 = yield(source_array[i], num1)
     i += 1
   end
-  return total
+  return num1
 end
