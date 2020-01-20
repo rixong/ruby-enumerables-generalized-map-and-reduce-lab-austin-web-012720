@@ -18,7 +18,7 @@ def reduce(source_array, sv=nil)
  end
   while i < source_array.length
     cur_total = yield(cur_total, source_array[i] )
-    cur_total = !!cur_total if !(source_array[i].instance_of? Integer) #switch cur_total to boolean if cur item isn't integer
+    # cur_total = !!cur_total if !(source_array[i].instance_of? Integer) #switch cur_total to boolean if cur item isn't integer
     i += 1
   end
   return cur_total
